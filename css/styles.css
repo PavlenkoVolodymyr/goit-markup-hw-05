@@ -684,7 +684,6 @@ img {
 .filtr-btn:hover,
 .filtr-btn:focus {
   background-color: var(--link-services-color);
-  letter-spacing: 0.06em;
   color: var(--primary-white-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
@@ -769,7 +768,17 @@ img {
 
 /* modal window */
 
-.backdrop.is-hidden {
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  transition: opacity 250ms linear, visibility 250ms linear;
+}
+
+.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
@@ -786,7 +795,7 @@ img {
   min-height: 581px;
   top: 50%;
   left: 50%;
-  /* background-color: var(--primary-white-color); */
+  background-color: var(--primary-white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -803,9 +812,10 @@ img {
   top: 8px;
   height: 30px;
   width: 30px;
-  background: var(--primary-white-color);
+  background: transparent;
   color: #000000;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
   border-radius: 50%;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
